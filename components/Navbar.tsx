@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { NavLinks } from '@/constans';
 import AuthProviders from '@/components/AuthProviders';
 import { getCurrentUser } from '@/lib/session';
-import Image from 'next/image';
+import ProfileMenu from '@/components/ProfileMenu';
 
 const Navbar = async () => {
     const session = await getCurrentUser();
@@ -23,13 +23,7 @@ const Navbar = async () => {
                 {session?.user ? (
                     <>
                         {session?.user?.image && (
-                            <Image
-                                src={session.user.image}
-                                with={40}
-                                height={40}
-                                alt={session.user.name}
-                                className="rounded-full"
-                            />
+                            <ProfileMenu session={session} />
                         )}
 
                         <Link href="/create-project">Share Work</Link>
