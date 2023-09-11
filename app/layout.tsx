@@ -1,6 +1,6 @@
 import './global.css';
-import Navbar from '@/app/components/Navbar';
-import Footer from '@/app/components/Footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 export const metadata = {
   title: 'Kiwi',
   description: 'Great demo and discovery of new developer projects',

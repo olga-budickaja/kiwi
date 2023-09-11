@@ -21,5 +21,4 @@ const Project = g.model('Project', {
 })
 export default config({
   schema: g
-
 })
