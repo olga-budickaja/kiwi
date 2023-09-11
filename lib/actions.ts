@@ -1,4 +1,5 @@
 import {GraphQLClient} from 'graphql-request';
+import { getUserQuery } from '@/graphql';
 
 const makeGraphQLRequest = async (query: string, variables = {}) => {
 
@@ -6,7 +7,7 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 
     const apiUrl = isProduction
                    ? process.env.NEXT_PUBLIC_GRAFBASE_API_URL || ''
-                   : 'http://127.0.0.1:4000/graphql';
+                   : 'http://193.161.14.82:4000/graphql';
 
     const apiKey = isProduction
                    ? process.env.NEXT_PUBLIC_GRAFBASE_API_KEY || ''
@@ -26,6 +27,6 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 }
 
 export const getUser = (email: string) => {
-    // return makeGraphQLRequest(``)
+    return makeGraphQLRequest(getUserQuery, { email })
 }
 

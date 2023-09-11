@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@grafbase/sdk": "^0.6.1",
     "@headlessui/react": "^1.7.17",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "20.6.0",
@@ -28,6 +27,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@grafbase/sdk": "^0.6.1",
     "find-unused-exports": "^5.0.0"
   }
 }
