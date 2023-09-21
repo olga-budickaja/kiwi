@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { getProviders, signIn } from 'next-auth/react';
+import Button from '@/components/Button';
 
 type Provider = {
     id: string;
@@ -33,12 +34,11 @@ const AuthProviders = () => {
         return (
             <div>
                 {Object.values(providers).map((provider: Provider, index: number) => (
-                    <button
+                    <Button
                         key={index}
-                        onClick={() => signIn(provider?.id)}
-                    >
-                        {provider.id}
-                    </button>
+                        handleClick={() => signIn(provider?.id)}
+                        title="Sign In"
+                    />
                 ))}
             </div>
         );
