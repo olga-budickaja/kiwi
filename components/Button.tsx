@@ -5,7 +5,7 @@ type Props = {
     title: string;
     type?: 'button' | 'submit';
     leftIcon?: string | null;
-    rightIcon: string | null;
+    rightIcon?: string | null;
     handleClick?: MouseEventHandler;
     isSubmitting?: boolean;
     bgColor?: string;
