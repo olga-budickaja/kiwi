@@ -1,6 +1,8 @@
 import { fetchAllProjects } from '@/lib/actions';
 import { ProjectInterface } from '@/common.types';
 import ProjectCard from '@/components/ProjectCard';
+import Categories from '@/components/Categories';
+import { categoryFilters } from '@/constans';
 
 type ProjectsSearch = {
     projectSearch: {
@@ -13,8 +15,17 @@ type ProjectsSearch = {
         }
     }
 }
-const Home = async () => {
-    const data = await fetchAllProjects("Frontend") as ProjectsSearch;
+
+type SearchParams = {
+    category?: string | null;
+}
+
+type Props = {
+    searchParams: SearchParams;
+}
+
+const Home = async ({ searchParams: { category } }: Props) => {
+    const  data = await fetchAllProjects(category) as ProjectsSearch;
 
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
@@ -30,7 +41,7 @@ const Home = async () => {
 
     return (
         <section className="flex-start flex-col paddings mb-16">
-            <h1>Categories</h1>
+            <Categories />
 
             <section className="projects-grid">
                 {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => (
