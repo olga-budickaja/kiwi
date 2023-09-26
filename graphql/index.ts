@@ -84,8 +84,8 @@ export const projectsQuery = `
   }
 `;
 export const projectsEmptyCategoryQuery = `
-  query getProjects {
-    projectSearch(first: 8) {
+  query getProjects($endcursor: String) {
+    projectSearch(first: 8, after: $endcursor) {
       pageInfo {
         hasNextPage
         hasPreviousPage

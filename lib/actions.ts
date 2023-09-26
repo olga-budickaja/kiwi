@@ -49,7 +49,7 @@ export const fetchAllProjects = (category?: string | null, endcursor?: string | 
     if (category) {
         return makeGraphQLRequest(projectsQuery, { category, endcursor });
     }
-    return makeGraphQLRequest(projectsEmptyCategoryQuery)
+    return makeGraphQLRequest(projectsEmptyCategoryQuery, { endcursor });
 };
 
 export const createNewProject = async (form: ProjectForm, creatorId: string, token: string) => {
